@@ -21,3 +21,29 @@ stages:
       hash: md5
       md5: 7bfceff9e187ac1aa39b03de4499926c
       size: 5744838
+  data_processing:
+    cmd: python src/features.py
+    deps:
+    - path: data/split
+      hash: md5
+      md5: a0db72da3b1071e02127fd180fb48da6.dir
+      size: 7182054
+      nfiles: 3
+    - path: src/features.py
+      hash: md5
+      md5: edfd85c706e07e94aac81416aaefa649
+      size: 1465
+    params:
+      params.yaml:
+        process.dir: data/processed
+        process.test_file: final_test.csv
+        process.train_file: final_train.csv
+        split.dir: data/split
+        split.test_file: test.csv
+        split.train_file: train.csv
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: bdef2f0af7ff619b93c9ecb123664a28.dir
+      size: 9866096
+      nfiles: 2
