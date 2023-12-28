@@ -8,13 +8,15 @@ stages:
     - base.random_state
     - split.split_ratio
     outs:
-    - data/split
+    - data/split/train.csv
+    - data/split/test.csv
+
 
   data_processing:
     cmd: python src/features.py
     deps:
     - data/split
-    - src/data_processing.py
+    - src/features.py
     params:
     - process.dir
     - process.test_file
