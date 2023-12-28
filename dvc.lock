@@ -1,0 +1,23 @@
+schema: '2.0'
+stages:
+  make_dataset:
+    cmd: python src/make_dataset.py
+    deps:
+    - path: src/make_dataset.py
+      hash: md5
+      md5: db8169a4df4b22e316307f796f3c92a9
+      size: 1158
+    params:
+      params.yaml:
+        base.random_state: 47
+        data_source.local_path: C:\Users\PRASHANT\Desktop\delinquecy_pipe\project_del\data\raw\refined_del.csv
+        split.split_ratio: 0.2
+    outs:
+    - path: data/split/test.csv
+      hash: md5
+      md5: 1cf4e88bebc0c0fbf2c42c44d9821278
+      size: 1437193
+    - path: data/split/train.csv
+      hash: md5
+      md5: 7bfceff9e187ac1aa39b03de4499926c
+      size: 5744838

@@ -7,13 +7,15 @@ from sklearn.model_selection import train_test_split
 
 def data_load_split(yaml_path):
     with open(yaml_path) as file:
-        param_yaml = yaml.load(file)
+        param_yaml = yaml.load(file, Loader=yaml.FullLoader)
 
     load_data = param_yaml["data_source"]["local_path"]
 
     data_df = pd.read_csv(load_data)
     random_state = param_yaml["base"]['random_state']
     split_ratio = param_yaml["split"]["split_ratio"]
+    
+ #   data_df.drop(data_df.columns[0], axis=1,inplace=True)
 
     train, test = train_test_split(
         data_df,
@@ -31,4 +33,4 @@ def data_load_split(yaml_path):
     test.to_csv(test_data_path, index=False)
 
 if __name__=="__main__":
-    data_load_split("params.yaml")
+    data_load_split(yaml_path="params.yaml")
