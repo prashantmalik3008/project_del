@@ -21,6 +21,7 @@ process:
 train:
   n_est: 35
  
-model_dir: model
+model: 
+  dir: models
 
 

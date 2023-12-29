@@ -32,23 +32,14 @@ def training(yaml_path):
 
     model_dir= param_yaml["model"]["dir"]
     os.makedirs(model_dir,exist_ok=True)
-    with open (model_dir+"/model.pkl",wb) as f:
+    with open (model_dir+"/model.pkl","wb") as f:
         pickle.dump(rfc,f)
 
 
-if __name__= "__main__":
+if __name__== "__main__":
     training(yaml_path = "params.yaml")
 
 
-
-    
-
-if __name__=="__main__":
-    # args = argparse.ArgumentParser()
-    # args.add_argument("--param_yaml",default="params.yaml")
-    # parsed_args = args.parse_args()
-    # data = training(param_yaml_path = parsed_args.param_yaml)
-    training(param_yaml_path = "params.yaml")
 
 
 

@@ -10,8 +10,6 @@ stages:
     outs:
     - data/split/train.csv
     - data/split/test.csv
-
-
   data_processing:
     cmd: python src/features.py
     deps:
@@ -27,20 +25,20 @@ stages:
     outs:
     - data/processed
   train:
-    cmd: python src/train.py data/features model/model.pkl
+    cmd: python src/train.py 
     deps:
     - data/processed
     - src/train.py
     params:
     - base.random_state
     - base.target_col
-    - model_dir
+    - model
     - process.dir
     - process.test_file
     - process.train_file
     - train.n_est
     outs:
-    - model/model.pkl
+    - models/model.pkl
   evaluate:
     cmd: python src/evaluate.py model/model.pkl data/processed
     deps:
