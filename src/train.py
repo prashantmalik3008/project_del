@@ -28,7 +28,7 @@ def training(yaml_path):
     n_est = param_yaml["train"]["n_est"]
 
     rfc =RandomForestClassifier(random_state=random_state,n_estimators=n_est)
-    rfc.fit(X_train, y_train)
+    rfc.fit(X_train, y_train.values.ravel())
 
     model_dir= param_yaml["model"]["dir"]
     os.makedirs(model_dir,exist_ok=True)

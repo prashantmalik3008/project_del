@@ -57,8 +57,8 @@ stages:
       nfiles: 2
     - path: src/train.py
       hash: md5
-      md5: f6dc1f7b39d7cb6c9b1a8262bf352aee
-      size: 2230
+      md5: 742b2730daf4878f8ac2e5a3a017b13d
+      size: 2245
     params:
       params.yaml:
         base.random_state: 47

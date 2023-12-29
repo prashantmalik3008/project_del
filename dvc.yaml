@@ -40,10 +40,10 @@ stages:
     outs:
     - models/model.pkl
   evaluate:
-    cmd: python src/evaluate.py model/model.pkl data/processed
+    cmd: python src/evaluate.py 
     deps:
     - data/processed
-    - model/model.pkl
+    - models/model.pkl
     - src/evaluate.py
     outs:
     - eval/importance.png
